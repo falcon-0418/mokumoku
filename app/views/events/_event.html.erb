@@ -6,6 +6,9 @@
     <div class="card-body">
       <h4 class="card-title fw-bold">
         <%= link_to event.title, event_path(event)  %>
+        <% if event&.female_only? %>
+          <span class="badge bg-secondary">女性限定</span>
+        <% end %>
       </h4>
       <p class="card-text"><%= event.content %></p>
       <hr />
