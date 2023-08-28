@@ -3,7 +3,6 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    @gender_options = User.genders_i18n.invert.map{|key,value|[key,value]}
   end
 
   def create

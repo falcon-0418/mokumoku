@@ -33,7 +33,7 @@
             </div>
             <div class="mb-3">
               <%= f.label :gender %>
-              <%= f.select :gender, @gender_options, { include_blank: '性別を選択してください' }, class: 'form-control' %>
+              <%= f.select :gender, User.genders_i18n.invert.map{|key,value|[key,value]}, { include_blank: '性別を選択してください' }, class: 'form-control' %>
             </div>
 
             <div class="mb-3">
