@@ -29,7 +29,8 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    @event.only_woman = true if @event.only_woman? && params[:event][:only_woman] == "1"
+    @event.only_woman = @event.only_woman?
+
     if @event.save
       User.all.find_each do |user|
         NotificationFacade.created_event(@event, user)
